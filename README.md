@@ -4,7 +4,7 @@
 
 This is a simple weather subscription app that allows users to subscribe to weather updates for a specific city. The app uses the WeatherApi to fetch weather data and sends email notifications to subscribers.
 
-## Technologies Used
+## 🔨 Technologies Used
 
 - Node.js
 - Express
@@ -25,7 +25,42 @@ This is a simple weather subscription app that allows users to subscribe to weat
 - PostgreSQL + Prisma ORM
 - Docker-compatible setup
 
-## What and Why(my thoughts(pretty messy))
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- Docker (for PostgreSQL)
+- PostgreSQL (if not using Docker)
+- WeatherApi key (sign up at [WeatherAPI](https://www.weatherapi.com/) to get your API key)
+- Gmail application password for sending emails with Nodemailer
+
+Please make sure to set up your environment variables in a `.env` file. You can use the provided `.env.example` as a template.
+
+### Start the Application
+
+You can use docker-compose to start the whole application. Server and Client will be served from the same Express server.
+
+```bash
+docker-compose up
+```
+
+Or you can start the server and client separately. Make sure to install the dependencies first and run the migrations.
+
+```bash
+# Install dependencies
+npm install
+# Run migrations
+npx prisma migrate dev
+# Start the server
+npm run server:dev
+# Start the client
+npm run client:dev
+# Or start both
+npm run dev
+```
+
+## 🤔 What and Why(my thoughts(pretty messy))
 
 While scope of that showcase application is intentionally pretty simple, yet there's always that temptation to add more features and overcomplicate things.
 For me, the goal was to create a pretty simple codebase with tech stack that allows to bootstrap those types of applications quickly. But still trying to keep that balance between simplicity and maintainability.
