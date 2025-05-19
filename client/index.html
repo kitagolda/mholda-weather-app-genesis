@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather App</title>
+    <script type="module" src="/main.js"></script>
+    <link href="/styles.css" rel="stylesheet" />
+  </head>
+  <body class="h-screen bg-gray-100 flex items-center justify-center">
+    <div id="app" class="w-full max-w-2xl px-4">
+      <div class="h-full flex items-center justify-center">
+        <input
+          id="search"
+          type="text"
+          placeholder="Search city"
+          class="w-full p-3 border rounded text-lg"
+        />
+      </div>
+      <div id="results" class="mt-6 space-y-4"></div>
+      <div id="modal-container"></div>
+    </div>
+  </body>
+</html>

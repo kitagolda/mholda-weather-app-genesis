@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Frequency {
+  HOURLY
+  DAILY
+}
+
+model User {
+  id    String @id @default(uuid())
+  email String @unique
+
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id        String    @id @default(uuid())
+  userId    String
+  city      String
+  confirmed Boolean   @default(false)
+  frequency Frequency
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, city])
+}

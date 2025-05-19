@@ -1,11 +1,23 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "workspaces": [
+    "server",
+    "client"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run server:start",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:build": "npm --workspace server run build",
+    "server:start": "npm --workspace server run start",
+    "server:dev": "npm --workspace server run dev",
+    "client:dev": "npm --workspace client run dev",
+    "client:build": "npm --workspace client run build"
   },
-  "author": "Mykyta Holda (kitagolda)",
+  "author": "Mykyta Holda(@kitagolda)",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
